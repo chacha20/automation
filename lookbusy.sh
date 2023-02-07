@@ -3,6 +3,7 @@
 cd /tmp
 if test ! -e logs;
 then mkdir /tmp/logs;
+fi
 
 # 清除上一轮日志
 rm -rf /tmp/logs/openssl*.log
