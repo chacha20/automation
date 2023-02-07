@@ -1,15 +1,17 @@
+!#/bin/bash
 cd /tmp
-mkdir logs;
+if test ! -e logs;
+then mkdir /tmp/logs;
 
 # 清除上一轮日志
 rm -rf /tmp/logs/openssl*.log
 # 循环执行10次
-for((i=1;i<=10;i++));
+for(( i=1; i<=10; i++ ));
 do
     # 每次计算150秒，openssl内部执行六轮，共150秒*6=900秒
-    openssl speed -evp aes-128-gcm -seconds 150 >> /tmp/logs/openssl${i}.log;
+    openssl speed -evp aes-128-gcm -seconds 3 >> /tmp/logs/openssl${i}.log;
     # 休息10秒，避免cpu监控连续CPU超长波峰
-    sleep 10
+    sleep 1
 done;
 
 # 清除wget日志
@@ -24,5 +26,5 @@ do
     # 删除下载文件
     rm -rf /tmp/logs/openwrt.tmg.gz*;
     # 休息30秒，避免被ban
-    sleep 30;
+    sleep 1;
 done;
