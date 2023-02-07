@@ -12,7 +12,7 @@ touch $basedir/openssl.log
 # 循环执行10次
 for i in {1..10}
 do
-    echo `datetime` >> $basedir/openssl.log
+    echo `date` >> $basedir/openssl.log
     echo $newline >> $basedir/openssl.log
     # 每次计算150秒，openssl内部执行六轮，共150秒*6=900秒
     openssl speed -evp aes-128-gcm -seconds 3 >> $basedir/openssl.log;
