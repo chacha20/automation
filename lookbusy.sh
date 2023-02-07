@@ -15,12 +15,11 @@ done
 
 rm -rf $basedir/lookbusy.log
 
-# filesize 100M, limit download speed to 4MB/s, about 10s per file
+# filesize 400M, limit download speed to 4MB/s
 for j in {1..50}
 do
     echo `date`>>$basedir/lookbusy.log
-    wget --limit-rage=4M https://github.com/coolsnowwolf/lede/releases/download/20220716/openwrt-rockchip-R22.10.10-Docker-hinlink_opc-h68k-d-squashfs-sysupgrade.img.gz -O $basedir/openwrt.tmg.gz
-    rm -rf $basedir/openwrt*.img.gz*;
-    rm -rf 
+    wget --limit-rage=4M https://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-2004_01.VirtualBox.box -O $basedir/downloadfile.box
+    rm -rf $basedir/downloadfile.box*;
     sleep 1;
 done
