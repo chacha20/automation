@@ -15,7 +15,7 @@ done
 
 rm -rf $basedir/lookbusy.log
 
-# filesize 100M/limits to 4MB/s
+# filesize 100M, limit download speed to 4MB/s, about 10s per file
 for j in {1..50}
 do
     echo `date`>>$basedir/lookbusy.log
