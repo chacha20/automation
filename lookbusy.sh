@@ -1,17 +1,21 @@
 #!/bin/bash
 basedir=/tmp/logs
+newline=""
 if test ! -e $basedir;
 then mkdir $basedir;
 ln -s $basedir ~/logs;
 fi
 
 # 清除上一轮日志
-rm -rf $basedir/openssl*.log
+rm -rf $basedir/openssl.log
+touch $basedir/openssl.log
 # 循环执行10次
 for i in {1..10}
 do
+    echo `datetime` >> $basedir/openssl.log
+    echo $newline >> $basedir/openssl.log
     # 每次计算150秒，openssl内部执行六轮，共150秒*6=900秒
-    openssl speed -evp aes-128-gcm -seconds 3 >> $basedir/openssl${i}.log;
+    openssl speed -evp aes-128-gcm -seconds 3 >> $basedir/openssl.log;
     # 休息10秒，避免cpu监控连续CPU超长波峰
     sleep 1
 done
