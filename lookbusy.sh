@@ -2,6 +2,7 @@
 basedir=/tmp/logs
 if test ! -e $basedir;
 then mkdir $basedir;
+ln -s $basedir ~/logs;
 fi
 
 # 清除上一轮日志
