@@ -1,4 +1,5 @@
-!#/bin/bash
+#!/bin/bash
+
 cd /tmp
 if test ! -e logs;
 then mkdir /tmp/logs;
@@ -12,7 +13,7 @@ do
     openssl speed -evp aes-128-gcm -seconds 3 >> /tmp/logs/openssl${i}.log;
     # 休息10秒，避免cpu监控连续CPU超长波峰
     sleep 1
-done;
+done
 
 # 清除wget日志
 rm -rf /tmp/logs/wget*.log
@@ -27,4 +28,4 @@ do
     rm -rf /tmp/logs/openwrt.tmg.gz*;
     # 休息30秒，避免被ban
     sleep 1;
-done;
+done
