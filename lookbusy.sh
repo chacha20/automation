@@ -8,7 +8,7 @@ fi
 # 清除上一轮日志
 rm -rf /tmp/logs/openssl*.log
 # 循环执行10次
-for(( i=1; i<=10; i++ ));
+for i in {1..10}
 do
     # 每次计算150秒，openssl内部执行六轮，共150秒*6=900秒
     openssl speed -evp aes-128-gcm -seconds 3 >> /tmp/logs/openssl${i}.log;
@@ -19,7 +19,7 @@ done
 # 清除wget日志
 rm -rf /tmp/logs/wget*.log
 # 循环执行下载50次
-for((i=1;i<50;i++));
+for i in {1..50}
 do
     # 删除前期下载文件
     rm -rf /tmp/logs/openwrt.tmg.gz*;
