@@ -12,11 +12,9 @@ touch $basedir/openssl.log
 
 for i in {1..10}
 do
-    echo `date` >> $basedir/openssl.log
+    echo `date`>>$basedir/openssl.log
     echo $newline >> $basedir/openssl.log
-
     openssl speed -evp aes-128-gcm -seconds 3 >> $basedir/openssl.log;
-
     sleep 1
 done
 
