@@ -19,7 +19,7 @@ rm -rf $basedir/lookbusy.log
 for j in {1..50}
 do
     echo `date`>>$basedir/lookbusy.log
-    wget --limit-rage=4M https://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-2004_01.VirtualBox.box -O $basedir/downloadfile.box
+    wget --limit-rage=8M https://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-2004_01.VirtualBox.box -O $basedir/downloadfile.box
     rm -rf $basedir/downloadfile.box*;
     sleep 1;
 done
